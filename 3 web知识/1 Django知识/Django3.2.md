@@ -551,8 +551,6 @@ urlpatterns = [
     path("login",login),
     path("auth",auth),
 ]
-
-
 ```
 
 ```python 

@@ -73,6 +73,8 @@ urlpatterns = [
 
     # 请求方式 (Post Get)
     path('login/', app01_login),
-    path('info/',app01_info)
+    path('info/', app01_info),
 
+    # 请求方式和参数
+    path('user/', include("user.urls"))
 ]
