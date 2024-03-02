@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "polls.apps.PollsConfig"
 ]
 
 MIDDLEWARE = [
@@ -70,10 +71,30 @@ WSGI_APPLICATION = 'django_code.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 数据库引擎配置
+        'ENGINE': 'django.db.backends.mysql',
+        # 数据库的名字
+        'NAME': 'vote',
+        # 数据库服务器的IP地址（本机可以写localhost或127.0.0.1）
+        'HOST': '8.134.196.206',
+        # 启动MySQL服务的端口号
+        'PORT': 3306,
+        # 数据库用户名和口令
+        'USER': 'root',
+        'PASSWORD': '128505Tan..',
+        # 数据库使用的字符集
+        'CHARSET': 'utf8',
+        # 数据库时间日期的时区设定
+        'TIME_ZONE': 'Asia/Chongqing',
     }
 }
 
@@ -120,3 +141,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 默认 True 也即如果访问不到 /user/test 则告诉浏览器再次访问 /user/test/ 简单的来说是否开启请求路径猴后缀 / 判断
 # APPEND_SLASH = False
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+    }
+}

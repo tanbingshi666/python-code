@@ -76,5 +76,8 @@ urlpatterns = [
     path('info/', app01_info),
 
     # 请求方式和参数
-    path('user/', include("user.urls"))
+    path('user/', include("user.urls")),
+
+    # orm
+    path('orm/', include("polls.urls"))
 ]
