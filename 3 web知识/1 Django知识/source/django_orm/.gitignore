@@ -3,3 +3,4 @@ pyvenv.cfg
 Scripts/**
 Lib/**
 db.sqlite3
+vote_app/__pycache__/

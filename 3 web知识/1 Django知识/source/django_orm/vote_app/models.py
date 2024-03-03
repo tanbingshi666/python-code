@@ -7,6 +7,9 @@ class Subject(models.Model):
     intro = models.CharField(max_length=1000, verbose_name='介绍')
     is_hot = models.BooleanField(verbose_name='是否热门')
 
+    def __str__(self):
+        return 'no = %d, name = %s, intro = %s' % (self.no, self.name, self.intro,)
+
     class Meta:
         managed = False
         db_table = 'tb_subject'
