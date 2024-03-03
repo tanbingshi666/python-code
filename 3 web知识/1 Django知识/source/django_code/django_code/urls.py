@@ -79,5 +79,5 @@ urlpatterns = [
     path('user/', include("user.urls")),
 
     # orm
-    path('orm/', include("polls.urls"))
+    path('orm/', include("polls.urls")),
 ]

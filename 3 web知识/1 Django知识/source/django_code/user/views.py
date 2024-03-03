@@ -81,3 +81,7 @@ def index3(request):
     # 客户端请求到这里 django 向客户端发送下一个请求路径 也即请求 /user/index
     # 因此重定向会发送两次请求
     return redirect('/user/index')
+
+
+def middle_ware(request):
+    return HttpResponse("hello middle ware")
