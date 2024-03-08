@@ -13,19 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path, include
+from django.urls import path
 
-
-def index(request):
-    return HttpResponse("django_drf index")
-
+from app_rest.views import IndexView, VersionView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('index/', index),
-    path('fbv/', include('app_fbv.urls')),
-    path('cbv/', include('app_cbv.urls')),
-    path('rest/', include('app_rest.urls')),
+    # DRF GET、POST 请求
+    path('index/', IndexView.as_view()),
+
+    # DRF 版本管理
+    path('version/', VersionView.as_view())
 ]
